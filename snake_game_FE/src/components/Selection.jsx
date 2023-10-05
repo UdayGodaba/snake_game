@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import { Alert, Box, Button } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
-import { setCreateFood, setFoodPosition } from '../store/food';
-import game, { setIsPaused, setLevel, setScore } from '../store/game';
-import { setBody, setDirection } from '../store/snake';
 import axios from 'axios';
+
+import { setCreateFood, setFoodPosition } from '../store/food';
+import { setIsPaused, setLevel, setScore } from '../store/game';
+import { setBody, setDirection } from '../store/snake';
 
 
 const Selection = () => {
-  
+
   const API_URL = import.meta.env.VITE_API_URL;
-  
+
   const [pageType, setPageType] = useState("selection");
   const [noSave, setNoSave] = useState(false);
   const isSelect = pageType === "selection";
@@ -82,9 +83,9 @@ const Selection = () => {
               Load Game
             </Button>
           </Box>
-            {noSave &&
-              <Alert severity="info">No saved game exists!</Alert>
-            }
+          {noSave &&
+            <Alert severity="info">No saved game exists!</Alert>
+          }
         </>
       }
       {!isSelect &&
@@ -115,6 +116,6 @@ const Selection = () => {
       </Box>
     </Box >
   )
-}
+};
 
 export default Selection;

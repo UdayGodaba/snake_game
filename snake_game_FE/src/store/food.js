@@ -1,9 +1,9 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   position: [],
   createFood: true
-}
+};
 
 const foodSlice = createSlice({
   name: 'food',
@@ -18,7 +18,7 @@ const foodSlice = createSlice({
       state.createFood = action.payload;
     }
   },
-})
+});
 
 export const { setFoodPosition, setCreateFood } = foodSlice.actions;
 

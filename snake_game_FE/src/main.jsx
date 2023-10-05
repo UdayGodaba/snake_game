@@ -1,7 +1,7 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import './index.css';
 import {
   persistStore,
   persistReducer,
@@ -14,12 +14,12 @@ import {
 } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import storage from 'redux-persist/lib/storage';
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { Provider } from 'react-redux'
-import authReducer from './store/auth.js'
-import foodReducer from './store/food.js'
-import gameReducer from './store/game.js'
-import snakeReducer from './store/snake.js'
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
+import authReducer from './store/auth.js';
+import foodReducer from './store/food.js';
+import gameReducer from './store/game.js';
+import snakeReducer from './store/snake.js';
 
 const persistConfig = {
   key: 'root',

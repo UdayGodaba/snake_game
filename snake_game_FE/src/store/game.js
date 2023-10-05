@@ -1,11 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   level: 1,
-  isPaused: false,
+  isPaused: true,
   score: 0,
   gameOver: false,
-}
+};
 
 const gameSlice = createSlice({
   name: 'game',
@@ -27,7 +27,7 @@ const gameSlice = createSlice({
       state.gameOver = action.payload;
     }
   },
-})
+});
 
 export const { setLevel, setIsPaused, setScore, setGameOver } = gameSlice.actions;
 

@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Grid from '@mui/material/Grid';
+
 import Selection from '../../components/Selection';
 import ScoreBoard from "../../components/ScoreBoard";
 
-
 const HomePage = () => {
-
 
     return (
         <Grid container sx={{ height: "93vh" }}>

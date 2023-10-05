@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Grid from '@mui/material/Grid';
+
 import Game from '../../components/Game';
 import ScoreBoard from "../../components/ScoreBoard";
 

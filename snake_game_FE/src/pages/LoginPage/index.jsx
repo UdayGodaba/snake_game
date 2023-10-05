@@ -1,6 +1,7 @@
 import React from 'react'
-import Form from '../../components/Form';
 import { Box } from '@mui/material';
+
+import Form from '../../components/Form';
 
 const LoginPage = () => {
     return (
@@ -14,6 +15,6 @@ const LoginPage = () => {
             <Form />
         </Box>
     )
-}
+};
 
 export default LoginPage;

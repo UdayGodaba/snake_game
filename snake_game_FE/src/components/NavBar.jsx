@@ -4,6 +4,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useSelector, useDispatch } from "react-redux";
 import { Box, Button } from '@mui/material';
+
 import { setLogout } from '../store/auth';
 
 
@@ -14,7 +15,7 @@ const NavBar = () => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "#445069", height: "7vh"}}>
+      <AppBar position="static" sx={{ backgroundColor: "#445069", height: "7vh" }}>
         <Toolbar>
           <Typography variant="h4" component="div"
             sx={{
@@ -43,6 +44,6 @@ const NavBar = () => {
       </AppBar>
     </Box>
   )
-}
+};
 
 export default NavBar;
