@@ -29,7 +29,7 @@ export const isValidPosition = (x, y, body) => {
 
   for (let i = 0; i < body.length; i++) {
     const [row, col] = body[i];
-    if (row === x && col === y) return false;
+    if (row == x && col == y) return false;
   }
 
   return true;

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import cloneDeep from "lodash/cloneDeep";
+import { useDispatch, useSelector } from "react-redux";
+
 import Board from "./Board";
 import { Snake, handleKeyPress } from "../utils/snake";
 import { generateFood, initialBoardValue, updateBoard } from "../utils/board";
-import { useDispatch, useSelector } from "react-redux";
 import { setCreateFood, setFoodPosition } from "../store/food";
 import { setIsPaused, setScore } from "../store/game";
 
