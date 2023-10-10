@@ -2,7 +2,7 @@ import Scores from "../models/scores.js";
 import User from "../models/user.js";
 import { getClaims, getToken } from "../utils/crypt.js";
 
-// To get top 10 scores
+// To get top 5 scores
 export const getTopScores = async (_, res) => {
   try {
     console.log("in getTopScores controller");
