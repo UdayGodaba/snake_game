@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const gameSchema = new mongoose.Schema({
-  userId: { type: Object, required: true },
+  userId: { type: String, required: true },
   value: {
     type: {
       dirX: Number,
