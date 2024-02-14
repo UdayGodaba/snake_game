@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { Alert } from '@mui/material';
 
 import LoginPage from './pages/LoginPage/index';
-import HomePage from './pages/HomePage/index';
-import GamePage from './pages/GamePage/index';
+// import HomePage from './pages/HomePage/index';
+// import GamePage from './pages/GamePage/index';
 import NavBar from './components/NavBar';
 
 const App = () => {
@@ -19,6 +19,9 @@ const App = () => {
     const isAuth = Boolean(useSelector((state) => state.auth.token));
     const [notification, setNotification] = useState(true);
 
+    const HomePage = lazy(() => import('./pages/HomePage/index'));
+    const GamePage = lazy(() => import('./pages/GamePage/index'));
+
     return (
         <div>
             <NavBar />
@@ -28,8 +31,8 @@ const App = () => {
             <Router>
                 <Routes>
                     <Route path="/" element={<LoginPage />} />
-                    <Route path="/home" element={isAuth ? <HomePage /> : <Navigate to="/" />} />
-                    <Route path="/game" element={isAuth ? <GamePage /> : <Navigate to="/" />} />
+                    <Route path="/home" element={isAuth ? <Suspense fallback={<h1>Loading</h1>}><HomePage /></Suspense> : <Navigate to="/" />} />
+                    <Route path="/game" element={isAuth ? <Suspense fallback={<h1>Loading</h1>}><GamePage /></Suspense> : <Navigate to="/" />} />
                 </Routes>
             </Router>
         </div>
