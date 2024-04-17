@@ -13,7 +13,9 @@ let intervalId = null;
 function Game() {
   const [board, setBoard] = useState(initialBoardValue);
 
-  const { position: foodPosition, createFood } = useSelector((state) => state.food);
+  const { position: foodPosition, createFood } = useSelector(
+    (state) => state.food
+  );
   const { dirX, dirY, body } = useSelector((state) => state.snake);
   const { isPaused, level } = useSelector((state) => state.game);
   const dispatch = useDispatch();
@@ -21,7 +23,7 @@ function Game() {
   const snake = new Snake(dirX, dirY, cloneDeep(body), dispatch);
 
   useEffect(() => {
-    window.addEventListener("keydown", (event) => {
+    const handleKeyDown = (event) => {
       if (event.code === "Space") {
         dispatch(setIsPaused(true));
       }
@@ -29,15 +31,25 @@ function Game() {
         dispatch(setIsPaused(false));
       }
       handleKeyPress(event, snake);
-    });
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.addEventListener("keydown", handleKeyDown);
+    };
   }, [isPaused]);
 
   useEffect(() => {
-    updateBoard(cloneDeep(initialBoardValue), snake.body, foodPosition, setBoard);
+    updateBoard(
+      cloneDeep(initialBoardValue),
+      snake.body,
+      foodPosition,
+      setBoard
+    );
 
     if (!isPaused) {
       intervalId = setInterval(() => {
-
         if (createFood) {
           dispatch(setFoodPosition(generateFood(snake.body)));
           dispatch(setCreateFood(false));
@@ -52,7 +64,12 @@ function Game() {
           snake.updatePosition();
         }
 
-        updateBoard(cloneDeep(initialBoardValue), snake.body, foodPosition, setBoard);
+        updateBoard(
+          cloneDeep(initialBoardValue),
+          snake.body,
+          foodPosition,
+          setBoard
+        );
       }, Math.floor(250 / level));
     } else {
       clearInterval(intervalId);
